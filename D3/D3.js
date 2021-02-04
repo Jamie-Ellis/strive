@@ -23,8 +23,7 @@ Create an object containing your name, surname, email address and age.
 const user1 = {
     name: "Jamie",
     surname: "Ellis",
-    email: "jamiekyaellis@gmail.com",
-    age: 19,
+    email: "jamiekyaellijfjffh"
 }
 
 /* EXERCISE 3
