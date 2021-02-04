@@ -33,7 +33,7 @@ It should return triple their absolute difference if the given number is greater
 */
 
 const crazyDiff = (intGiven) => {
-    return (intGiven > 19 ? (intGiven - 19) * 3 : intGiven - 19)
+    return (intGiven > 19 ? Math.abs(intGiven - 19) * 3 : Math.abs(intGiven - 19))
 }
 
 console.log(crazyDiff(26))
