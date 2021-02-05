@@ -78,6 +78,7 @@ const reverseString = (stringGiven2) => {
 }
 
 console.log(reverseString("Hey my name is Jamie"))
+
 /* EXERCISE 8
 Write a function "upperFirst" to capitalize the first letter of each word of a given string passed as a parameter.
 */
@@ -105,10 +106,11 @@ Write a function "giveMeRandom" which accepts a number n and returns an array co
 */
 
 const giveMeRandom = (n1) => {
+    let listOfNumbers = []
     for (let i = 0; i < n1; i++) {
-        let listOfNumbers = [Math.random() * 11]
-        return listOfNumbers
+        listOfNumbers = [Math.random() * 11]
     }
+    return listOfNumbers
 }
 
 console.log(giveMeRandom(4))
