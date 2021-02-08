@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Accessing Elements in the DOM</title>
+
+  </head>
+
+<body>
+    <div id="titleName" ><h1>Voulez-Vouz</h1></div>
+
+    <div id="tableTopProducts">
+    <style type="text/css">
+        .tg  {border-collapse:collapse;border-spacing:0;}
+        .tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+          overflow:hidden;padding:10px 5px;word-break:normal;}
+        .tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+          font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+        .tg .tg-cey4{border-color:inherit;font-size:16px;text-align:left;vertical-align:top}
+        .tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
+        </style>
+        <table class="tg">
+        <thead>
+          <tr>
+            <th class="tg-cey4">Product</th>
+            <th class="tg-cey4">Image</th>
+            <th class="tg-cey4">Description</th>
+            <th class="tg-cey4">Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="tg-0pky">Oculus Quest 2 — <br>Advanced All-In-One Virtual Reality Headset — <br>64 GB</td>
+            <td class="tg-0pky"><img class="productImage" src="https://images-na.ssl-images-amazon.com/images/I/615YaAiA-ML._SL1500_.jpg" alt="Picture of Oculus Quest 2" width="500" height="500"></td>
+            <td class="tg-0pky">With Quest 2, we're taking things even further, <br>starting with a multi-generational leap in processing power with the state-of-the-art Qualcomm® Snapdragon™ XR2 Platform offering higher AI capability,<br> and 6GB of RAM. The new display features 1832 x 1920 pixels per eye—our highest resolution display yet.</td>
+            <td class="price">$299.00 + Shipping &amp; Import Fees Deposit<a class= "amazonLink" href="https://www.amazon.com/Oculus-Quest-Advanced-All-One-2/dp/B08F7PTF53" target="_blank" rel="noopener noreferrer">Amazon</a></td>
+          </tr>
+          <tr>
+            <td class="tg-0pky">Toshiba feature Smart WiFi Purifier, <br>True HEPA Air Cleaner, Designed for Allergies,<br> Pollen, Pets, Odors, Smoke and Dust, <br>works with Alexa, Black, 26'</td>
+            <td class="tg-0pky"><img class="productImage" src="https://images-na.ssl-images-amazon.com/images/I/61h4Sh6Il0L._AC_SL1500_.jpg" alt="Toshiba feature Smart WiFi Purifier" width="190" height="500"></td>
+            <td class="tg-0pky">This 26-inch air purifier has a CADR of 145 (dust), 228 (pollen), and 143 (smoke). <br>Best for small and medium-sized rooms, it can clean up to 220 square feet.<br> In an hour, it can make five air changes. When it comes to noise, it has a sound level of 32dB at the lowest fan speed.</td>
+            <td class="price">Price: $99.99 (10% off)<a class= "amazonLink" href="https://www.amazon.com/Toshiba-Purifier-Cleaner-Designed-Allergies/dp/B088LQKL5K/ref=gbps_tit_m-9_475e_ce0a221c?smid=ATVPDKIKX0DER&pf_rd_p=5d86def2-ec10-4364-9008-8fbccf30475e&pf_rd_s=merchandised-search-9&pf_rd_t=101&pf_rd_i=15529609011&pf_rd_m=ATVPDKIKX0DER&pf_rd_r=PNFPSYNN58699C83A8GS&spLa=ZW5jcnlwdGVkUXVhbGlmaWVyPUEyTUo3VkpLRVNPTUpGJmVuY3J5cHRlZElkPUEwNzk2NjM2MjUyOFlXWFdXMkpNQSZlbmNyeXB0ZWRBZElkPUEwMzUxMzcwVlpYRkZRV0hKNFkxJndpZGdldE5hbWU9c3BfZ2JfbWFpbl9zdXBwbGUmYWN0aW9uPWNsaWNrUmVkaXJlY3QmZG9Ob3RMb2dDbGljaz10cnVl" target="_blank" rel="noopener noreferrer">Amazon</a></td>
+          </tr>
+          <tr>
+            <td class="tg-0pky">Bagotte BG800 Robot Vacuum Cleaner, <br>Wi-Fi Connection Mapping, 2200Pa Suction, <br>Alexa &amp; App Control, Boundary Strips Included, <br>Quiet, Self-Charging, <br>Ideal for Pet Hair, Carpets, Hard Floor</td>
+            <td class="tg-0pky"><img class="productImage" src="https://images-na.ssl-images-amazon.com/images/I/71hGyhBF-zL._AC_SL1500_.jpg" width="488" height="500"></td>
+            <td class="tg-0pky">Bagotte BG800 is a robot vacuum cleaner with Wi-Fi connectivity, <br>Mapping and voice command controls. <br>The powerful suction of 2200Pa is perfect for extracting pet hairs, dust and dirt from carpets and hard floors.<br>The robot can be operated remotely using voice command controls using App and Alexa.</td>
+            <td class="price">$209.99 + Shipping &amp; Import Fees Deposit<a class="amazonLink" href="https://www.amazon.com/Bagotte-Connection-Boundary-Included-Self-Charging/dp/B08GKNNDZ8/ref=gbps_tit_m-9_475e_52803145?smid=A9SOP7MOUTJ4D&pf_rd_p=5d86def2-ec10-4364-9008-8fbccf30475e&pf_rd_s=merchandised-search-9&pf_rd_t=101&pf_rd_i=15529609011&pf_rd_m=ATVPDKIKX0DER&pf_rd_r=6XAT19MTDHKN09JA1GQM&spLa=ZW5jcnlwdGVkUXVhbGlmaWVyPUEySDkzWFcwWUJNOUdYJmVuY3J5cHRlZElkPUEwODgxNDk3MTVOUjlXV1c5U0VSUCZlbmNyeXB0ZWRBZElkPUEwNTM0NTI4MzZCR1c1TDhQU1A0MyZ3aWRnZXROYW1lPXNwX2diX21haW5fc3VwcGxlJmFjdGlvbj1jbGlja1JlZGlyZWN0JmRvTm90TG9nQ2xpY2s9dHJ1ZQ==" target="_blank" rel="noopener noreferrer">Amazon</a></td>
+          </tr>
+          <tr>
+            <td class="tg-0pky">Micolindun Gaming Headset for Xbox One, <br>PS4, PC, Over Ear Gaming Headphones with Noise Cancelling Mic LED Light, <br>Stereo Bass Surround, Soft Memory Earmuffs for Smart Phone, Laptops, Tablet</td>
+            <td class="tg-0pky"><img class="productImage" src="https://images-na.ssl-images-amazon.com/images/I/71Fz4ruSCBL._AC_SL1500_.jpg" alt="Micolindun Gaming Headset" width="475" height="500"></td>
+            <td class="tg-0pky">With shocking, clear and Deep bass sound effect, <br>This headset is a very good choice for games, Movies and music. <br>In-line controller with volume control and Mute key, easy to adjust volume and turn on/off mic during games. <br>The headset is great for gaming, working, studying, Chatting and Skype using, etc.</td>
+            <td class="price">$20.99 + Shipping &amp; Import Fees Deposit<a class="amazonLink" href="https://www.amazon.com/Micolindun-Headphones-Surround-Reduction-Smartphones/dp/B074X2LK3L/ref=gbps_tit_m-9_475e_0b086753?smid=AQ11YSJVAERVT&pf_rd_p=5d86def2-ec10-4364-9008-8fbccf30475e&pf_rd_s=merchandised-search-9&pf_rd_t=101&pf_rd_i=15529609011&pf_rd_m=ATVPDKIKX0DER&pf_rd_r=NJ6Y1RNM9951VA44MWFC" target="_blank" rel="noopener noreferrer">Amazon</a></td>
+          </tr>
+          <tr>
+            <td class="tg-0pky">SadoTech Waterproof Black Wireless Doorbell &amp; Chime For Home - <br>Model C - 1 Push-Button Ringer, 1 Sound Receiver - Battery Operated, <br>Waterproof, Long Range, 52 Door Bell Sounds, 4 Volumes</td>
+            <td class="tg-0pky"><img class="productImage" src="https://images-na.ssl-images-amazon.com/images/I/71uRjVd0baL._AC_SL1500_.jpg" alt="SadoTech Waterproof Black Wireless Doorbell & Chime For Home" width="500" height="373"></td>
+            <td class="tg-0pky">Advantages to our wireless doorbell is that it's waterproof <br>and weatherproof to withstand the elements so it's perfect for any environment. <br>While SadoTech doorbells are battery powered, placing it outside your door is 100% safe.</td>
+            <td class="price">$21.99 Shipping &amp; Import Fees Deposit<a class= "amazonLink" href="https://www.amazon.com/SadoTech-1000-feet-Adjustable-Waterproof-Resistant/dp/B018UYRTZQ/ref=gbps_tit_m-9_475e_4d128c9e?smid=A3ED7Y6OONT0Y9&pf_rd_p=5d86def2-ec10-4364-9008-8fbccf30475e&pf_rd_s=merchandised-search-9&pf_rd_t=101&pf_rd_i=15529609011&pf_rd_m=ATVPDKIKX0DER&pf_rd_r=G6BC86DFH7KEJ6KWXMBD" target="_blank" rel="noopener noreferrer">Amazon</a></td>
+          </tr>
+        </tbody>
+        </table>
+    </div>
+    <footer>
+        <table>
+            <thead>
+                <tr>
+                  <th class="tg-cey4">Address</th>  
+                  <th class="tg-cey4">Send us a Message</th>
+                </tr>            
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="address">Marbella <br> Spain <br> 29602</td>
+                    <td class="inputField"><form action=""><input type="text" placeholder="Please send us a message"> <br> <input type="submit"></form></td>
+                </tr>
+            </tbody>
+        </table>
+    </footer>
+    <script>
+        const headerChange = () => {
+            let headerSize = document.getElementsByTagName("h1")
+            for(let i = 0; i < headerSize.length; i++){
+                headerSize[i].style.color = 'blue'
+            }
+        }
+        
+        const backgroundChange = () => {
+            let backgroundColor = document.getElementsByTagName("body")
+            for(let j = 0; j < backgroundColor.length; j++){
+                backgroundColor[j].style.background = "blue"
+            }
+        }
+
+        const changeFooter = () => {
+            let changeAddress = document.getElementsByClassName("address")
+            changeAddress.innerText = "Neverland, <br /> The Lost Island,"
+        }
+
+        const changeAmazonLink = () => {
+            let styleLink = document.getElementsByClassName("amazonLink")
+            for(let x=0; x < styleLink.length; x++){
+            styleLink[x].style.color = "red"
+            }
+        }
+
+        const imageOpacity = () => {
+            let imageVisibility = document.getElementsByClassName("productImage")
+            for(let z=0; z < imageVisibility.length; z++){
+                imageVisibility[z].style.opacity = 0
+            }
+        }
+
+        const priceColorChanger = () => {
+            let randomColor = Math.floor(Math.random()*16777215).toString(16)
+            let colorChanger = document.getElementsByClassName("price")
+            for(let b=0; b < colorChanger.length; b++){
+                colorChanger[b].style.color = "#" + randomColor;
+                colorChanger[b].innerHTML = '#' + randomColor;
+            }
+        }
+    </script>
+</body>
