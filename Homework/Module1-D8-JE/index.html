@@ -111,8 +111,17 @@ The have a list of tasks and can, at any time, add a new one, delete one or sort
           - Use the document.createElement to create the new List Item
           - Append the child to the UL
       */
-
-        const addNewTask = () => {
+        
+      //   const addNewTask = () => {
+      //   let newTaskElement = document.createElement('li')
+      //   let newTask = document.getElementById('newTask')
+      //   newTaskElement.classList.add("taskListItem")
+      //   let newTaskValue = newTask.value
+      //   newTaskElement.innerText = newTaskValue
+      //   newTask.appendChild(newTaskElement)
+      //  }
+       const addNewTask = () => {
+        let taskList = document.getElementById('myTaskList')
         let newTaskElement = document.createElement('li')
         newTaskElement.classList.add("taskListItem")
         let newTaskValue = newTask.value
@@ -157,12 +166,12 @@ The have a list of tasks and can, at any time, add a new one, delete one or sort
 
       const changeTaskBackgroundColor = () => {
         let colorPicker = document.getElementById('colorPicker')
-        let colorPickerBackground = document.querySelector("body")
+        let colorPickerBackground = document.querySelector("ul")
         let colorPickerColor = colorPicker.value 
         let colorPickerValue = () => {
           colorPickerBackground.style.background = colorPickerColor
       }
-      colorPickerColorValue ();
+      colorPickerValue ();
     }
       
       /* EXTRA */
