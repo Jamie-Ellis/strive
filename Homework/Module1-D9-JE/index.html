@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href='https://fonts.googleapis.com/css?family=Cambay' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Roboto:300' rel='stylesheet' type='text/css'>
+  <style>
+  
+  body {
+    background: #00ff84;
+    display: flex;
+    height: 100vh;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  h3, p {
+    font-family: 'Roboto', sans-serif; font-size: 20pt;
+    font-weight: 600;
+    margin: 0 auto;
+    text-align: center;
+    padding: 30px;
+    color: white;
+  }
+  
+  input button {
+    text-decoration: none;
+    color: #f1c40f;
+  }
+  
+  #squarefree {
+    font-family: Helvetica;
+    margin: 0 auto;
+    background: #5dc4de;
+    text-align: center;
+    font-weight: 600;
+    font-size: 15pt;
+  }
+  
+  #bingotable {
+    margin: 0 auto;
+    text-align: center;
+    width: 400px;
+    height: 400px;
+    border-collapse: collapse;
+    background: white;
+  }
+  
+  .numberCell {
+    font-family: Helvetica;
+    margin: 0 auto;
+    text-align: center;
+    border: 3px solid black;
+    width: 20%;
+  }
+  
+  .orange {
+    background: #9b59b6;
+  }
+  
+  </style>
+  <link rel="stylesheet" type="text/css" href="bingocss.css" />
+  <script type="text/javascript" src="scripts/bingojs.js"></script>
+  <title>Bingo</title>
+</head>
+
+  <body onload="newCard()">
+
+	<div id="container">
+    <div id="header">
+      <h1>Your BINGO Card</h1>
+    </div>
+	<div id="content">
+		<table id="bingoTable">
+		</table>
+	</div>
+	
+<input type="button" value="Click Here" onclick="newCard()">
+<script>
+let usedNums = [];
+let bingoNumbersArray = [];
+
+
+function newCard() {
+	//Starting loop through each square card
+	for(var i=0; i < 76; i++) {  //<--always this code for loops. change in red
+		setSquare(i);
+	}
+}
+
+function setSquare() {
+	let bingoTable = document.getElementById('bingoTable')
+	let newNum = Math.floor(Math.random() * 76) + 1;
+  
+  let column =[0,1,2,3,4,0,1,2,3,4,0,1,3,4,0,1,2,3,4,0,1,2,3,4];
+
+  }
+
+  for(let i = 0; i < 74; i++){
+    let numberCells = document.createElement('div')
+    let child = document.createElement('h3')
+    child.innerHTML=newNum
+    numberCells.className= "numberCell"
+    numberCells.appendChild(child)
+    do {
+		newNum =(column[] * 15) + getNewNum() + 1;
+  }
+	
+	do {
+		newNum =(column[] * 15) + getNewNum() + 1;
+	}
+	while (usedNums[newNum]);
+	
+	usedNums[newNum] = true;
+	document.getElementById(currSquare).innerHTML = newNum;
+}
+
+function getNewNum() {
+	return Math.floor(Math.random() * 75);
+	
+}
+
+function anotherCard() {
+	for(var i=1; i<usedNums.length; i++) {
+	usedNums[i] = false;
+	}
+	
+	newCard();
+}
+</script>
+</body>
+
+</html>
+  <!--
+        BINGO CHALLENGE!!!
+        Create programmatically (with JS) a BINGO board with 76 cells, from 1 to 76.
+        Create a button to randomize a number from 1 to 76. The same number should be highlighted on the bingo board
+
+        EXTRA: 
+        - Take ALWAYS a new number (avoid randoming 10 3 times for example)
+        - Create a USER BOARD with random 24 numbers that highlights as the main board does
+        - Let the user choose HOW MANY user boards he's willing to play with and create them.
+    -->
+
+
+
+
+  <!--
+        BINGO CHALLENGE!!!
+        Create programmatically (with JS) a BINGO board with 76 cells, from 1 to 76.
+        Create a button to randomize a number from 1 to 76. The same number should be highlighted on the bingo board
+
+        EXTRA: 
+        - Take ALWAYS a new number (avoid randoming 10 3 times for example)
+        - Create a USER BOARD with random 24 numbers that highlights as the main board does
+        - Let the user choose HOW MANY user boards he's willing to play with and create them.
+    -->
