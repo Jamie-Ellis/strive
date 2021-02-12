@@ -1,0 +1,31 @@
+body{
+    right: 50px;
+	font-size: 20px;
+	font-family: Georgia, 'Times New Roman', Times, serif;
+	color: rgb(0, 0, 0);
+}
+.question{
+    right: 50px;
+	font-weight: 600;
+}
+.answers {
+  margin-bottom: 20px;
+}
+.answers label{
+  display: block;
+}
+#submit{
+	font-family: inherit;
+	font-size: 20px;
+	background-color: wheat;
+	color: rgb(0, 0, 0);
+	border: 0px;
+	border-radius: 3px;
+	padding: 20px;
+	cursor: pointer;
+	margin-bottom: 20px;
+
+}
+#submit:hover{
+	background-color: #00ff55;
+}

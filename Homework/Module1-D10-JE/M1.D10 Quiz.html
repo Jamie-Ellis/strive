@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <!--
+        QUIZ GAME!
+
+        RULES:
+        / The player must guess correctly a certain amount of questions
+        / Each correct answer gives him one point
+        / Answers could be “multiple” or “true/false”
+        / At the end of the game, the user must know his total score
+
+        QUESTIONS:
+        / You can get them from this URL ( http://bit.ly/strive_QUIZZ ) or you can write your own
+        / Could be multiple of boolean (true / false)
+        / [EXTRA] Show if the answer was wrong or correct after clicking
+        / [EXTRA] Present them “one a time”
+
+        HINTS:
+        / Keep a global variable “score” for the score
+        / Keep a variable “questionNumber” for the “question” the user is answering
+        / When “questionNumber” is bigger then the available questions, present the score
+        / Start working with the question saved in a variable, and then include AJAX etc
+        / Start with the easier version and THEN implement the “EXTRAs”
+        / Please debug everything / try it on the console to be sure of what to expect from your code
+
+        EXTRA:
+        / Show if the answer was wrong or correct after clicking
+        / Present questions one a time
+        / Let the user select difficulty and number of questions (you can get q/a from https://opentdb.com/api.php?amount=10&category=18&difficulty=easy modifying amount and difficulty)
+
+    -->
+
+    <head>
+       <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <title>Document</title>
+    </head>
+        
+    <body>
+        <div id="quiz">
+            <!-- quiz questions will go here -->
+        </div>
+        <button id="submit">Show Results</button>
+        <div id="results">
+            <!-- Shows users their reults -->
+        </div>
+        <script>
+         var questions = [
+             
+            {category:"Science: Computers",
+             type:"multiple",
+             difficulty:"easy",
+             question:"What does CPU stand for?",
+             answers: {
+                 a: "Central Processing Unit",
+                 b: "Central Process Unit",
+                 c: "Computer Personal Unit",
+                 d: "Central Processor Unit"},
+             correct_answer: "a"
+            },
+
+            {category:"Science: Computers",
+            type:"multiple",
+            difficulty:"easy",
+            question:"In the programming language Java, which of these keywords would you put on a variable to make sure it doesn&#039;t get modified?",
+            answers: {
+                a:"Private",
+                b:"Static",
+                c:"Final",
+                d:"Public"},
+            correct_answer: "c"
+            },
+
+            {category:"Science: Computers",
+            type:"boolean",
+            difficulty:"easy",
+            question:"The logo for Snapchat is a Bell.",
+            answers: {
+                a:"False",
+                b:"True"},
+            correct_answer: "a"
+            },
+            
+            {category:"Science: Computers",
+            type:"boolean",
+            difficulty:"easy",
+            question:"Pointers were not used in the original C programming language; they were added later on in C++.",
+            answers:{
+                a:"True",
+                b:"False"},
+            correct_answer:"b"
+            },
+            
+            {category:"Science: Computers",
+            type:"multiple",
+            difficulty:"easy",
+            question:"What is the most preferred image format used for logos in the Wikimedia database?",
+            answers:{
+                a:".png",
+                b:".svg",
+                c:".jpeg",
+                d:"-gif"},
+            correct_answer: "b"
+            },
+            
+            {category:"Science: Computers",
+            type:"multiple",
+            difficulty:"easy",
+            question:"In web design, what does CSS stand for?",
+            answers:{
+                a:"Counter Strike: Source",
+                b:"Corrective Style Sheet",
+                c:"Computer Style Sheet",
+                d:"Cascading Style Sheet"},
+            correct_answer: "d"
+            },
+            
+            {category:"Science: Computers",
+            type:"multiple",
+            difficulty:"easy",
+            question:"What is the code name for the mobile operating system Android 7.0?",
+            answers:{
+                a:"Ice Cream Sandwich",
+                b:"Nougat",
+                c:"Jelly Bean",
+                d:"Marshmallow"},
+            correct_answer: "b"
+            },
+            
+            {category:"Science: Computers",
+            type:"multiple",
+            difficulty:"easy",
+            question:"On Twitter, what is the character limit for a Tweet?",
+            answers:{
+                a:"140",
+                b:"120",
+                c:"160",
+                d:"100"},
+            correct_answer: "a"
+            },
+            
+            {category:"Science: Computers",
+            type:"boolean",
+            difficulty:"easy",
+            question:"Linux was first created as an alternative to Windows XP.",
+            answers:{
+                a:"True",
+                b:"False"},
+            correct_answer:"b"
+            },
+            
+            {category:"Science: Computers",
+            type:"multiple",
+            difficulty:"easy",
+            question:"Which programming language shares its name with an island in Indonesia?",
+            answers:{
+                a:"Python",
+                b:"C",
+                c:"Java",
+                d:"Jakarta"},
+            correct_answer:"c"
+            }
+        ];
+        
+        const quizContainer = document.getElementById('quiz');
+        const resultsContainer = document.getElementById('results');
+        const submitButton = document.getElementById('submit');
+        
+            function MoveElements (event){
+                event.target.style.right = "50px"
+            }
+        function buildQuiz(){
+            // variable to store the HTML output
+            const output = [];
+
+            // for each question...
+            questions.forEach(
+            (currentQuestion, questionNumber) => {
+                // variable to store the list of possible answers
+                const answers = [];
+                // and for each available answer...
+                for(letter in currentQuestion.answers){ //gets letter each index in array of question objects
+                answers.push( // adds Html to be read in browser
+                    `<label>
+                    <input type="radio" name="question${questionNumber}" value="${letter}">
+                    ${letter} :
+                    ${currentQuestion.answers[letter]}
+                    </label>`
+                );
+                }
+
+                // add this question and its answers to the output
+                output.push(
+                `<div class="question"> ${currentQuestion.question} </div>
+                <div class="answers"> ${answers.join('')} </div>`
+                );
+            }
+            );
+
+            // finally combine our output list into one string of HTML and put it on the page
+            quizContainer.innerHTML = output.join('');
+            }    
+        
+        function showResults(){
+
+            const answerContainers = quizContainer.querySelectorAll('.answers');
+            let numCorrect = 0;
+            questions.forEach( (currentQuestion, questionNumber) => {
+
+            // find selected answer
+            const answerContainer = answerContainers[questionNumber];
+            const selector = `input[name=question${questionNumber}]:checked`;
+            const userAnswer = (answerContainer.querySelector(selector) || {}).value;
+
+            // if answer is correct
+            if(userAnswer === currentQuestion.correct_answer){
+            // add to the number of correct answers
+            numCorrect++; 
+
+            answerContainers[questionNumber].style.color = '#00ff55';  // color the answers green
+            }
+            
+            else{
+            // color the answers red
+            answerContainers[questionNumber].style.color = 'red';
+            }
+            });
+
+            // show number of correct answers out of total
+            resultsContainer.innerHTML = `${numCorrect} out of ${questions.length}`;
+            }
+        buildQuiz();
+        submitButton.addEventListener('click', showResults);
+        </script>
+    </body>
+</html>
