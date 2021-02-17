@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!--
+
+        ASSIGNMENT RULES
+        - This is exercise should be done in couples
+        - Implement one exercise each
+        - We suggest you to use Zoom or Google Hangouts to speak to each other
+
+        - The solution must be pushed to the repository and linked on EduFlow by the end of the day
+        - You can google / use StackOverflow BUT we suggest you to use just the material provided
+        - To test the page, just open it with your default browser.
+        - Use Bootstrap4 classes to render the page.
+        - Use correctly containers and rows in order to have a great display
+
+
+        You are implementing a website for a Travel Agency.
+        In the page you can add all the destination you'd like to go in the next future!
+
+
+        Ex 1) Implement a navigation bar, connected to all the sections of the page. 
+        Ex 2) Add a logo into the navigation bar 
+        Ex 3) Add a Jumbotron section in which you present name and claim of the tour operator
+        Ex 4) Implement the "Deal of the Week" section. In this section you'll display 4 destinations.
+         In this section you should have:
+            - 4 destinations per row when the screen is very large
+            - 3 destinations per row when you are on a tablet (or a smaller window)
+            - 2 destinations per row when you are on a small screen
+
+        Ex 5) Implement the "Welcome Summer" section. In this section you'll propose 6 destinations
+            In this section you should have:
+                - 6 destinations per row when the screen is very large
+                - 3 destinations per row when you are on a tablet (or a smaller window)
+                - 2 destinations per row when you are on a small screen
+        
+        Ex 6) Implement a "Deal of the day" section. In this section you'll have:
+            - 66% of the page with a picture of the destination
+            - 33% with Name, dates, price and a short description
+
+        Ex 7) Make the "Deal of the day" section disappear when the user is mobile
+        Ex 8) Add to the Welcome Summer destinations a large shadow
+        Ex 9) Create a section Last Minute, in which you'll display the pictures from the destinations as Cards
+        Ex 10) Create a "Testimonial" section, in which the user can find several feedback from fake customers
+        Ex 11) Create a footer with the company information and a button "contact us"
+
+        Ex 11) Create a button next to each section to collapse and reopen the given section
+        Ex 12) Create a method that counts the number of "travels" on the page
+        Ex 13) Create a modal view with a message and a email field
+        Ex 14) When the user clicks on "contact us" the modal is displayed
+        Ex 15) Create a function that adds a "HOT" badge to all the "Welcome Summer" offers
+        Ex 16) Create a function to delete all "cards" from the page
+      -->
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <title>Hello, world!</title>
+    <style>
+      @media screen and (max-width: 576px) {
+        #dealOfDay {
+			display: none;
+        }
+	 }
+
+    </style>
+  </head>
+  <body>
+    <!-- Ex 1) Implement a navigation bar, connected to all the sections of the page.  -->
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+    <!-- Ex 2) Add a logo into the navigation bar  -->
+      <a class="navbar-brand" href="#">
+        <img src="https://www.clipartkey.com/mpngs/m/192-1926797_travel-agency-logo-tour-and-travel-logo-png.png" alt="" width="200px" height="120px">
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#dealOfTheWeek">Deal of the Week</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#summer">Welcome Summer</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#lastMinute">Last Minute</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#testimonials">Testimonials/a>
+          </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+      </div>
+    </nav>
+
+    <!-- Ex 3) Add a Jumbotron section in which you present name and claim of the tour operator -->
+    <div class="container my-4" style="text-align: center">
+      <div class="row">
+        <div class="col-12 ">
+          <div class="jumbotron">
+            <h1 class="display-4">Chanting Escapes Travel</h1>
+            <p class="lead">Experience, Explore, Escape</p>
+            <hr class="my-4">
+            <p>We provide the best offers and deals for your trips and travel destinations</p>
+            <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+           </div>
+          </div>
+        </div>
+      </div>
+    </div>
+   
+    <!-- Ex 4) Implement the "Deal of the Week" section. In this section you'll display 4 destinations.
+         In this section you should have:
+            - 4 destinations per row when the screen is very large
+            - 3 destinations per row when you are on a tablet (or a smaller window)
+            - 2 destinations per row when you are on a small screen -->
+<hr class="my-4">
+<div id="dealOfTheWeek" class="container"> 
+<h3 style="text-align: center;">Deal Of The Week</h3>
+<div class="row">
+  <div id="first-column" class="col-6 col-md-4 col-lg-3">
+    <div class="card">
+      <img
+        src="https://specials-images.forbesimg.com/imageserve/5df7fb014e2917000783339f/960x0.jpg?fit=scale"
+        class="card-img-top"
+        alt="test-card"
+        width="150"
+        height="200"
+      />
+      <div class="card-body">
+        <p class="card-text">
+          China,
+        </p>
+      </div>
+    </div>
+  </div>
+  <div id="second-column" class="col-6 col-md-4 col-lg-3">
+    <div class="card">
+      <img
+        src="https://www.costacruceros.es/content/dam/costa/inventory-assets/countries/PRT/PRT.jpg.image.750.563.low.jpg"
+        class="card-img-top"
+        alt="test-card"
+        width="150"
+        height="200"
+      />
+      <div class="card-body">
+        <p class="card-text">
+          Portugal, Spain
+        </p>
+      </div>
+    </div>
+  </div>
+  <div id="third-column" class="col-6 col-md-4 col-lg-3">
+    <div class="card">
+      <img
+        src="http://www.amarehotels.com/wp-content/uploads/2020/01/marbella-aerial-view1.jpg"
+        class="card-img-top"
+        alt="test-card"
+        width="150"
+        height="200"
+      />
+      <div class="card-body">
+        <p class="card-text">
+          Marbella, Spain
+        </p>
+      </div>
+    </div>
+  </div>
+  <div id="fourth-column" class="col-6 col-md-4 col-lg-3">
+    <div class="card">
+      <img
+        src="https://cdn.businesstraveller.com/wp-content/uploads/fly-images/984688/Bangkok-916x516.jpg"
+        class="card-img-top"
+        alt="test-card"
+        height="200"
+        width="150"
+      />
+      <div class="card-body">
+        <p class="card-text">
+          Bangkok, Thailand
+        </p>
+      </div>
+    </div>
+  </div>
+</div> 
+
+    
+<!-- Ex 5) Implement the "Welcome Summer" section. In this section you'll propose 6 destinations
+            In this section you should have:
+                - 6 destinations per row when the screen is very large
+                - 3 destinations per row when you are on a tablet (or a smaller window)
+                - 2 destinations per row when you are on a small screen -->
+
+<hr class="my-4">
+<div id= "summer" class="container shadow-lg p-3 mb-5 bg-white rounded">
+<h3 style="text-align: center;">Welcome Summer</h3>
+<div class="row">
+  <div class="col-6 col-md-4 col-lg-2">
+    <div class="card">
+      <img src="https://img.traveltriangle.com/blog/wp-content/uploads/2017/05/Cover11.jpg" width="150" height="90"class="card-img-top" alt="...">
+      <div class="card-body">
+        <a href="#" class="btn-m btn-primary">Greece</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-6 col-md-4 col-lg-2">
+    <div class="card">
+      <img src="https://s23444.pcdn.co/wp-content/uploads/2020/01/coast-3949782_1920.jpg.optimal.jpg" width="150" height="90"class="card-img-top" alt="...">
+      <div class="card-body">
+        <a href="#" class="btn-m btn-primary">Mauritius</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-6 col-md-4 col-lg-2">
+    <div class="card">
+      <img src="https://wsrsolutions.com/wp-content/uploads/2016/08/wheelchair-summer-destinations.jpg" width="150" height="90"class="card-img-top" alt="...">
+      <div class="card-body">
+        <a href="#" class="btn-m btn-primary">Turkey</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-6 col-md-4 col-lg-2">
+    <div class="card">
+      <img src="https://ipanematravels.com/wp-content/uploads/2019/03/summer-destinations-in-Europe.jpg" width="150" height="90"class="card-img-top" alt="...">
+      <div class="card-body">
+        <a href="#" class="btn-m btn-primary">Germany</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-6 col-md-4 col-lg-2">
+    <div class="card">
+      <img src="https://www.hotelsandresortsonline.com/wp-content/uploads/2016/03/summer-destinations.jpg" width="150" height="90"class="card-img-top" alt="...">
+      <div class="card-body">
+        <a href="#" class="btn-m btn-primary">Tuscany</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-6 col-md-4 col-lg-2">
+    <div class="card">
+      <img src="http://lovefromtuscany.com/wp-content/uploads/2018/07/italy-4093227_1280-1024x682.jpg" width="150" height="90"class="card-img-top" alt="...">
+      <div class="card-body">
+        <a href="#" class="btn-m btn-primary">Cies</a>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- Ex 6) Implement a "Deal of the day" section. In this section you'll have:
+- 66% of the page with a picture of the destination
+- 33% with Name, dates, price and a short description -->
+<hr class="my-4">
+<div id="dealOfDay" class="container col-sm-12 col-md-12 col-lg-12 visible">
+  <h2 style="text-align: center;">Deal Of the Day</h2>
+<div class="row">
+  <div class="card">
+    <div class="row no-gutters">
+      <div class="mw-66">
+        <img class="mw-66" src="https://www.trailsofindochina.com/wp-content/uploads/2018/04/Bangkok_header.jpg" widthalt="...">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Ex.9 -->
+  
+  <hr class="my-4">
+  <h3 style="text-align: center;">Last Minute</h3>
+  <div class="container">
+    <div class="row">
+      <div id="first-column" class="col-6 col-md-4 col-lg-3">
+        <div class="card">
+          <img src="https://specials-images.forbesimg.com/imageserve/5df7fb014e2917000783339f/960x0.jpg?fit=scale" class="card-img-top" alt="...">
+          
+        </div>
+</div>
+<div id="first-column" class="col-6 col-md-4 col-lg-3">
+  <div class="card">
+    <img src="https://www.costacruceros.es/content/dam/costa/inventory-assets/countries/PRT/PRT.jpg.image.750.563.low.jpg" class="card-img-top" alt="...">
+    
+  </div>
+</div>
+<div id="first-column" class="col-6 col-md-4 col-lg-3">
+  <div class="card">
+    <img src="http://www.amarehotels.com/wp-content/uploads/2020/01/marbella-aerial-view1.jpg" class="card-img-top" alt="...">
+    
+  </div>
+</div>
+<div id="first-column" class="col-6 col-md-4 col-lg-3">
+  <div class="card">
+    <img src="https://cdn.businesstraveller.com/wp-content/uploads/fly-images/984688/Bangkok-916x516.jpg" class="card-img-top" alt="...">
+    
+  </div>
+</div>
+ 
+</div>
+</div>
+</div>
+<hr class="my-3">
+<div id="testimonials" class="container"> 
+  <h3 style="text-align: center;">Testimonials</h3>
+  <div class="row">
+    <div id="first-column" class="col-6 col-md-4 col-lg-3">
+    <div class="media">
+      <img src="data:image/png;base64,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" class="mr-3" alt="...">
+      <div class="media-body">
+        <h5 class="mt-0">Richard</h5>
+        <p> The agency made sure my trip was quick and simple while remaining a high class of standard </p>
+        </div>
+    </div>
+    </div>
+  </div>
+  <div id="second-column" class="col-6 col-md-4 col-lg-3">
+          <a class="media">
+            <img src="data:image/png;base64,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"  width="100" height="100" alt="...">
+          </a>
+          <div class="media-body">
+            <h5 class="mt-0">Media heading</h5>
+            <p>Greetings loved ones let's take a journey. Yes, we make angels cry, raining down on earth from up above. Give you something good to celebrate. I used to bite my tongue and hold my breath. I'm ma get your heart racing in my skin-tight jeans. As I march alone to a different beat. Summer after high school when we first met. You're so hypnotizing, could you be the devil? Could you be an angel? It's time to bring out the big balloons. Thought that I was the exception. Bikinis, zucchinis, Martinis, no weenies.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+</div>
+<script>
+  function toggleDealOfDay () {
+    let container = document.getElementById("dealOfDay")
+    let smallDevice = document.getElementsByClassName("col-sm-12")
+    if (smallDevice){
+      container.classList.toggle("invisible")
+    }
+  }
+</script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+
+    
+  </body>
+</html>
+ 
