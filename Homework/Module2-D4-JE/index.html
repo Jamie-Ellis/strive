@@ -142,7 +142,8 @@
         memberInputTable.appendChild(addMemberInput);
         members.push(inputValue)
         document.getElementById("inputNameAndSurname").value = ""; 
-        
+      }
+
         function deleteMember() {
           document.getElementById("memberInputTable").lastChild.remove()
         }
@@ -187,15 +188,16 @@
               let tdNameAndSurname = document.createElement("td")
               createTableRow();
               memberCounter++
-              tdNumber.
-              if(members[i] != members[i]){
-              tdNumber.innerHTML=memberCounter++
-              tdNameAndSurname.innerHTML = members[i]
-            }
+              
+            //   if(members[i] != members[i]){
+            //   tdNumber.innerHTML=memberCounter++;
+            //   tdNameAndSurname.innerHTML = members[i];
+            // }
             }
           }
           writeValues();
         }
+      
 
           
         
@@ -216,7 +218,7 @@
         //         <input type='text' class='form-control' placeholder='Name and Surname:' aria-label='Text input with segmented dropdown button'>
         //     </div>
         //     ";
-      }
+   // }
     </script>
   </body>
 </html>
