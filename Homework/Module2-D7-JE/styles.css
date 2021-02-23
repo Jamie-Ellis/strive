@@ -1,0 +1,40 @@
+/* EX1) Write a selector to target the <title> of the page */
+title {
+  color: aqua;
+}
+/* EX2) Write a selector to target every children of the navbar */
+nav > a {
+  color: aqua;
+}
+/* EX3) Write a selector to target the "continue reading..." inside the jumbotron */
+p > a.text-white.font-weight-bold {
+  color: aqua;
+}
+/* EX4) Write a selector to target the first blogpost */
+div.row.mb-2 > div:nth-child(1) {
+  border: solid red 1px;
+}
+/* EX5) Write a selector to target the "even" links in the navbar */
+div.nav-scroller.py-1.mb-2 > nav :nth-child(2n) {
+  color: salmon;
+}
+/* EX6) Write a selector to target the last blog post */
+main > div > div > div:nth-child(4) {
+    color: seagreen;
+}
+/* EX7) Write a selector to target all the li into the first ordered-list in the sidebar ( Archives ) */
+ol.list-unstyled.mb-0 > li{
+    color: tan;
+}
+/* EX8) Write a selector to target the second post author */
+body > main > div > div > div:nth-child(3) > p.blog-post-meta > a{
+    color:violet
+}
+/* EX9) Write a selector to target the "back to top" link     #### EXTRA Try doing it without targeting the footer element directly */
+body > footer > p:nth-child(2){
+    color: yellow;
+}
+/* EX10) Write a selector to target the footer */
+body > footer{
+    border: solid, teal, 1px;
+}
