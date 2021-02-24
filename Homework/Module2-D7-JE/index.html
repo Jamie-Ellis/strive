@@ -486,15 +486,21 @@
         }
         // EX17) Write a function to trim just the first 50 characters in the first paragraph for each blog post
         function trimCharacters(){
-          let blogs = document.getElementsByClassName("blog-post")
-          blogs.forEach(element => {
-            let p = document.querySelector("body > main > div > div > div:nth-child(2) > p:nth-child(2)")
-            p.text(function() {
+          //let blogs = document.getElementsByClassName("blog-post")
+          let blogs = document.querySelectorAll(".blog-post")
+
+          blogs.forEach(blog => {
+            let p = blog.querySelector("p:nth-child(3)")
+            p.innerHTML = p.innerHTML.slice(0, 50)
+           /* p.text(function() {
             p.split(" ");
             p[0] = p[0].substring(0, 50);
             p = p.join(" ");
-            });
-          }
+          });*/
+          console.log(p.innerHTML.slice(0, 50))
+
+          })
+          
         }
         // EX18) Write a function and attach it to the "Newer" button, to add new Blog Post (just div and title)
         
