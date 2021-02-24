@@ -1,0 +1,58 @@
+body{
+    background-color: rgb(87, 82, 82);
+}
+div.container.top{
+    margin-top: 30px;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: stretch;
+    align-content: center;
+}
+div.col-6.firstcol{
+    border-radius: 20px;
+    border: solid black 1px;
+    height: 400px;
+    line-height: 200px;
+    background-color: rgb(98, 173, 98);
+    text-align: center;
+}
+div.col-2.secondcol{
+    border-radius: 20px;
+    border: solid black 1px;
+    height: 400px;
+    line-height: 200px;
+    background-color: rgb(109, 109, 221);
+    text-align: center;
+}
+div.col-4.thirdcol{
+    flex-flow: column wrap;
+    border-radius: 20px;
+    border: solid black 1px;
+    height: 400px;
+    line-height: 200px;
+    text-align: center;
+}
+div.col-4.thirdcol > div{
+    max-height: max-content;
+    border: solid black 1px;
+}
+div.col.top > p{
+    line-height: 1.5;
+  display: inline-block;
+  vertical-align: middle;
+}
+h4.card-img-top{
+    background-color: rgb(194, 192, 192);
+    text-align: center;
+    padding: 8px;
+}
+div.card-body{
+    text-align: center;
+}
+button.signup{
+    background-color: white;
+    padding: 4px;
+    border-radius: 3px;
+    border: solid turquoise 1px;
+    font-weight: 600;
+}
