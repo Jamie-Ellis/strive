@@ -1,93 +1,98 @@
-body{
-    font-family: 'Open Sans', sans-serif;
-    color: whitesmoke;
-    background-color: #191414;
+body {
+  font-family: "Open Sans", sans-serif;
+  color: whitesmoke;
+  background-color: #191414;
 }
-.card{
-    color: whitesmoke;
-    text-align: center;
-    border-radius: 4px;
-    background-color: #110f0f;
+.card {
+  color: whitesmoke;
+  text-align: center;
+  border-radius: 4px;
+  background-color: #110f0f;
 }
-img{
-    border-radius: 3px;
+img {
+  border-radius: 3px;
 }
-jumbotron{
-    background-color:  #191414;
+jumbotron {
+  background-color: #191414;
 }
-table.table.table-hover{
-    color: white;
+table.table.table-hover {
+  color: white;
 }
-table.table.table-hover tbody > tr:hover{
-    background-color: whitesmoke;
-    color:black;
+table.table.table-hover tbody > tr {
+  transition: all 3s ease-in-out;
+  filter: invert(0) blur(5px);
 }
-i.fas.fa-play-circle.fa-3x{
-    color: rgb(13, 189, 13);
+table.table.table-hover tbody > tr:hover {
+  filter: invert(1) blur(0px);
+  /* background-color: whitesmoke;
+    color:black;*/
 }
-div.container-fluid.jumbo.mb-3{
-    background-image: url("https://hdwallsource.com/img/2018/5/spotify-desktop-wallpaper-66452-68719-hd-wallpapers.jpg");
-    background-repeat: no-repeat;
+i.fas.fa-play-circle.fa-3x {
+  color: rgb(13, 189, 13);
+}
+div.container-fluid.jumbo.mb-3 {
+  background-image: url("https://hdwallsource.com/img/2018/5/spotify-desktop-wallpaper-66452-68719-hd-wallpapers.jpg");
+  background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
-    min-height: 50vh;
+  min-height: 50vh;
 }
 .footer-basic {
-    padding:40px 0;
-    background-color:#191414;
-    color:white
-  }
-  
-  .footer-basic ul {
-    padding:0;
-    list-style:none;
-    text-align:center;
-    font-size:18px;
-    line-height:1.6;
-    margin-bottom:0;
-  }
-  
-  .footer-basic li {
-    padding:0 10px;
-  }
-  
-  .footer-basic ul a {
-    color:inherit;
-    text-decoration:none;
-    opacity:0.8;
-  }
-  
-  .footer-basic ul a:hover {
-    opacity:1;
-  }
-  
-  .footer-basic .social {
-    text-align:center;
-    padding-bottom:25px;
-  }
-  
-  .footer-basic .social > a {
-    font-size:24px;
-    width:40px;
-    height:40px;
-    line-height:40px;
-    display:inline-block;
-    text-align:center;
-    border-radius:50%;
-    border:1px solid #ccc;
-    margin:0 8px;
-    color:inherit;
-    opacity:0.75;
-  }
-  
-  .footer-basic .social > a:hover {
-    opacity:0.9;
-  }
-  
-  .footer-basic .copyright {
-    margin-top:15px;
-    text-align:center;
-    font-size:13px;
-    color:#aaa;
-    margin-bottom:0;
-  }
+  padding: 40px 0;
+  background-color: #191414;
+  color: white;
+}
+
+.footer-basic ul {
+  padding: 0;
+  list-style: none;
+  text-align: center;
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+
+.footer-basic li {
+  padding: 0 10px;
+}
+
+.footer-basic ul a {
+  color: inherit;
+  text-decoration: none;
+  opacity: 0.8;
+}
+
+.footer-basic ul a:hover {
+  opacity: 1;
+}
+
+.footer-basic .social {
+  text-align: center;
+  padding-bottom: 25px;
+}
+
+.footer-basic .social > a {
+  font-size: 24px;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  display: inline-block;
+  text-align: center;
+  border-radius: 50%;
+  border: 1px solid #ccc;
+  margin: 0 8px;
+  color: inherit;
+  opacity: 0.75;
+}
+
+.footer-basic .social > a:hover {
+  opacity: 0.9;
+}
+
+.footer-basic .copyright {
+  margin-top: 15px;
+  text-align: center;
+  font-size: 13px;
+  color: #aaa;
+  margin-bottom: 0;
+}
