@@ -1,0 +1,539 @@
+<!--
+ASSIGNMENT RULES
+- The solution must be pushed to the repository and submitted the GitHub link on Eduflow before 17:00
+- You can google / use StackOverflow BUT we suggest you to use just the material provided
+- To test the page, just open it with your default browser.
+- Use Bootstrap4.6 classes to render the page.
+- Use containers and rows correctly in order to have a great display
+
+ASSIGNMENT TOPIC 
+You are creating a website to showcase your favourite albums.
+In this page you'd like to have a short bio of yourself, the top albums of your life, 
+the worst album you ever listen to and everything related to the music you love.
+
+IMPORTANT:
+Start from the previous Musical assignment project you've created on M2-D2
+
+NOTE:
+Most of the time, even the most expert designers, need inspiration.
+Spend some time surfing the web searching for the way of representing the albums that you like the most.
+Could be the Amazon way, the Spotify or Apple music way or some other blog out there.
+-->
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/76ee4c4f0f.js" crossorigin="anonymous"></script>
+    <title>Hello, world!</title>
+  </head>
+  <body>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+
+  
+    <!-- IMPORT ALL THE BOOSTRAP RELATED CSS & SCRIPTS-->
+    
+    <!-- EXERCISE 1
+        Use the specific bootstrap component to implement a Breadcrumb
+        -->
+       
+    <!-- EXERCISE 2
+            Create a Jumbotron section with a quick explanation / image of the website
+        -->
+
+    <!-- EXERCISE 3
+            Foreach album in the favorite list, place the genre inside a badge
+        -->
+
+    <!-- EXERCISE 4
+            Foreach album in the favorite list, use the Bootstrap Card to contain it.
+            Use card layouts to format it in the best and more compatible way.
+        -->
+
+    <!-- EXERCISE 5
+            Place the tracklist inside a Bootstrap table.
+            The row column must be alternate.
+            Use one column for the track order, one of the title and one for the length.
+            (If you want, you can also add extra columns)
+        -->
+
+    <!-- EXERCISE 6
+            Add a DELETE bootstrap button on each row of the tracklist, with appropriate transitions on the various pseudo-class states 
+            which will apply for the subsequent button you'll use.
+            Clicking on the button the row must disappear. 
+            Add a fade-out effect using a CSS transition effect
+        -->
+
+    <!-- EXERCISE 7
+            Add a "Contact Me" form in the footer.
+            The "Contact Me" form has 2 fields:
+            - Email
+            - Text of the message
+            Use the correct Bootstrap styles for styling the buttons
+        -->
+
+    <!-- EXERCISE 8 
+            Add to the footer an extra column with the same links of the top nav.
+        -->
+
+    <!-- EXERCISE 9
+            Add a button "Add Track" under the track list the album, add a nice shadow transition when the button is hovered
+        -->
+
+    <!-- EXERCISE 10
+            On "Add Track" button, open a new modal.
+            The modal shall contain a form with:
+            - Track number
+            - Track name
+            - Track length
+            - Track featuring
+            - Live Track (checkbox)
+            The fields should be inside an Input Group and divided in 2 columns.
+        -->
+
+    <!-- EXERCISE 11
+            Add 2 bootstrap buttons at the bottom of the modal window:
+            - Close => clear the fields and close the modal
+            - Add => Add the track to the list of tracks in the main page and display an alert success message 
+            - The new list-element added to the list will appear with a fade-in transition effect
+            https://getbootstrap.com/docs/4.6/components/alerts/
+            [EXTRA] Make the message disappear after 5 seconds
+            https://www.w3schools.com/jsref/met_win_settimeout.asp
+        -->
+
+    <!-- EXERCISE 12
+            All the field (except for Feat. and Live Track) are required fields and requires validation.
+            If the user clicks on the Add button and some fields are empty, a warning alert must be show
+        -->
+
+    <!-- ############### -->
+    <!-- ###  EXTRA  ### -->
+    <!-- ############### -->
+
+    <!-- EXERCISE 13
+            For each "Album cover" in your page, add a tooltip with the title
+        -->
+
+    <!-- EXERCISE 14
+            Update the header and footer links using scrollspy to render a smooth transition to the parts of the document.
+        -->
+
+    <!-- EXERCISE 15
+            Add a Album Carousel with controls to display the top 10 albums
+        -->
+
+    <!-- EXERCISE 16
+            Make every section of the page "collapsable" if the user clicks on the section title
+        -->
+        <nav class="navbar sticky-top navbar-expand-lg navbar-dark">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <a class="navbar-brand" href="#">
+                <img src="https://logos-marcas.com/wp-content/uploads/2020/09/Spotify-Logo.png" width="100" height="50" alt="Search it:)">
+            </a>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                  <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      My Favorite Albums
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <a class="dropdown-item" href="#weeknd">After Hours - The Weeknd</a>
+                      <a class="dropdown-item" href="#kaytranada">Bubba - Kaytranada</a>
+                      <div class="dropdown-divider"></div>
+                      <a class="dropdown-item" href="#derek">Epochs - Derek Pope</a>
+                    </div>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#worstAlbums" tabindex="-1" aria-disabled="true">Worst Albums</a>
+                  </li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0">
+                  <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
+              </div>
+            </nav>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb mb-0">
+                  <li class="breadcrumb-item"><a href="#">Home</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">Library</li>
+                </ol>
+              </nav>
+    <!-- EXERCISE 3
+            Create a responsive section for your favourite albums.
+            In this section you should have:
+            - 4 albums per row when the screen is very large
+            - 3 albums per row when you are on a tablet (or a smaller window)
+            - 2 albums per row when you are on a small screen
+        -->
+        
+        <div class="container-fluid jumbo mb-3">
+            <div class="row">
+                <div class="col">
+                    <h1 class="display-4">Fluid jumbotron</h1>
+                </div>
+              
+              <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+            </div>
+          </div>
+          <div class="container">
+              <div class="row no-gutters row-cols-1 row-cols-sm-2 row-cols-md-4 row-cols-lg-4">
+                <div class="col mb-3 px-1">
+                    <div class="card position-relative">
+                        <div class="p-3">
+                        <img src="https://ismorbo.com/wp-content/uploads/2020/03/the-weeknd-after-hours.jpg" class="img-fluid" alt="...">
+                        </div>  
+                        <div>
+                            <h5>After Hours- The Weeknd</h5>
+                          <p>Some quick example text to build on the card title and make</p>
+                        </div>
+                      </div>  
+                </div>
+                <div class="col mb-3 px-1">
+                    <div class="card position-relative">
+                        <div class="p-3">
+                        <img src="https://media.pitchfork.com/photos/5df3c008b91d230008bf3846/1:1/w_600/bubba.jpeg" class="img-fluid" alt="...">
+                        </div>
+                        <div class="card-body">
+                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        </div>
+                      </div>  
+                </div>
+                <div class="col mb-3 px-1">
+                    <div class="card position-relative">
+                        <div class="p-3">
+                            <img src="https://images.squarespace-cdn.com/content/v1/57155f2240261d0e2090a157/1603914938799-MHEKJKFEU34KWSFB5QRD/ke17ZwdGBToddI8pDm48kJUlZr2Ql5GtSKWrQpjur5t7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z5QPOohDIaIeljMHgDF5CVlOqpeNLcJ80NK65_fV7S1UfNdxJhjhuaNor070w_QAc94zjGLGXCa1tSmDVMXf8RUVhMJRmnnhuU1v2M8fLFyJw/Derek+Pope+Epochs+Album+Cover.jpg" class="img-fluid" alt="...">
+                        </div>
+                        <div class="card-body">
+                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        </div>
+                      </div>  
+                </div>
+                <div class="col mb-3 px-1">
+                    <div class="card position-relative" >
+                        <div class="p-3">
+                        <img src="https://img.discogs.com/zxZo7tG486RZvK7wlK0WhdPuWU0=/fit-in/300x300/filters:strip_icc():format(jpeg):mode_rgb():quality(40)/discogs-images/R-1623444-1232974854.jpeg.jpg" class="img-fluid" alt="...">
+                    </div>
+                        <div class="card-body">
+                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        </div>
+                      </div>  
+                </div>
+            </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col mb-3 justify-content-center">
+                        <h2 class="font-weight-bold">After Hours Tracklist</h2>
+                        <i class="fas fa-play-circle fa-3x pr-4"></i>
+                        <i class="far fa-heart fa-2x pr-4"></i>
+                        <i class="fas fa-ellipsis-h fa-2x"></i>
+                    </div>
+                   
+            </div>
+            <div class="container">
+                <table class="table table-hover">
+                    <thead>
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Title</th>
+                        <th scope="col">Length</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row">1</th>
+                        <td>Alone Again</td>
+                        <td>3:30</td>
+                        </tr>
+                      <tr>
+                        <th scope="row">2</th>
+                        <td>Alone Again</td>
+                        <td>3:30</td>
+                    </tr>
+                      <tr>
+                        <th scope="row">4</th>
+                        <td>Alone Again</td>
+                        <td>3:30</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">5</th>
+                        <td>Alone Again</td>
+                        <td>3:30</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">6</th>
+                        <td>Alone Again</td>
+                        <td>3:30</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">7</th>
+                        <td>Alone Again</td>
+                        <td>3:30</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">8</th>
+                        <td>Alone Again</td>
+                        <td>3:30</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">9</th>
+                        <td>Alone Again</td>
+                        <td>3:30</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">10</th>
+                        <td>Alone Again</td>
+                        <td>3:30</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">11</th>
+                        <td>Alone Again</td>
+                        <td>3:30</td>
+                      </tr>
+                    </tbody>
+                  </table>
+            </div>
+              <div class="container">
+                <div class="row">
+                    <div class="col mb-3 justify-content-center">
+                        <h2 class="font-weight-bold">After Hours Tracklist</h2>
+                        <i class="fas fa-play-circle fa-3x pr-4"></i>
+                        <i class="far fa-heart fa-2x pr-4"></i>
+                        <i class="fas fa-ellipsis-h fa-2x"></i>
+                    </div>
+                   
+            </div>
+            <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Length</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">1</th>
+                    <td>Alone Again</td>
+                    <td>3:30</td>
+                    </tr>
+                  <tr>
+                    <th scope="row">2</th>
+                    <td>Alone Again</td>
+                    <td>3:30</td>
+                </tr>
+                  <tr>
+                    <th scope="row">4</th>
+                    <td>Alone Again</td>
+                    <td>3:30</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">5</th>
+                    <td>Alone Again</td>
+                    <td>3:30</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">6</th>
+                    <td>Alone Again</td>
+                    <td>3:30</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">7</th>
+                    <td>Alone Again</td>
+                    <td>3:30</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">8</th>
+                    <td>Alone Again</td>
+                    <td>3:30</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">9</th>
+                    <td>Alone Again</td>
+                    <td>3:30</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">10</th>
+                    <td>Alone Again</td>
+                    <td>3:30</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">11</th>
+                    <td>Alone Again</td>
+                    <td>3:30</td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="container">
+                <div class="row">
+                    <div class="col mb-3 justify-content-center">
+                        <h2 class="font-weight-bold">After Hours Tracklist</h2>
+                        <i class="fas fa-play-circle fa-3x pr-4"></i>
+                        <i class="far fa-heart fa-2x pr-4"></i>
+                        <i class="fas fa-ellipsis-h fa-2x"></i>
+                    </div>
+                   
+            </div>
+            <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Length</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">1</th>
+                    <td>Alone Again</td>
+                    <td>3:30</td>
+                    </tr>
+                  <tr>
+                    <th scope="row">2</th>
+                    <td>Alone Again</td>
+                    <td>3:30</td>
+                </tr>
+                  <tr>
+                    <th scope="row">4</th>
+                    <td>Alone Again</td>
+                    <td>3:30</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">5</th>
+                    <td>Alone Again</td>
+                    <td>3:30</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">6</th>
+                    <td>Alone Again</td>
+                    <td>3:30</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">7</th>
+                    <td>Alone Again</td>
+                    <td>3:30</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">8</th>
+                    <td>Alone Again</td>
+                    <td>3:30</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">9</th>
+                    <td>Alone Again</td>
+                    <td>3:30</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">10</th>
+                    <td>Alone Again</td>
+                    <td>3:30</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">11</th>
+                    <td>Alone Again</td>
+                    <td>3:30</td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="container">
+                <div class="row">
+                    <div class="col mb-3 justify-content-center">
+                        <h2 class="font-weight-bold">After Hours Tracklist</h2>
+                        <i class="fas fa-play-circle fa-3x pr-4"></i>
+                        <i class="far fa-heart fa-2x pr-4"></i>
+                        <i class="fas fa-ellipsis-h fa-2x"></i>
+                    </div>
+                   
+            </div>
+            <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Length</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">1</th>
+                    <td>Alone Again</td>
+                    <td>3:30</td>
+                    </tr>
+                  <tr>
+                    <th scope="row">2</th>
+                    <td>Alone Again</td>
+                    <td>3:30</td>
+                </tr>
+                  <tr>
+                    <th scope="row">4</th>
+                    <td>Alone Again</td>
+                    <td>3:30</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">5</th>
+                    <td>Alone Again</td>
+                    <td>3:30</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">6</th>
+                    <td>Alone Again</td>
+                    <td>3:30</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">7</th>
+                    <td>Alone Again</td>
+                    <td>3:30</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">8</th>
+                    <td>Alone Again</td>
+                    <td>3:30</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">9</th>
+                    <td>Alone Again</td>
+                    <td>3:30</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">10</th>
+                    <td>Alone Again</td>
+                    <td>3:30</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">11</th>
+                    <td>Alone Again</td>
+                    <td>3:30</td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="footer-basic">
+                <footer>
+                    <div class="social"><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-facebook"></i></a></div>
+                    <ul class="list-inline">
+                        <li class="list-inline-item"><a href="#">Home</a></li>
+                        <li class="list-inline-item"><a href="#">Services</a></li>
+                        <li class="list-inline-item"><a href="#">About</a></li>
+                        <li class="list-inline-item"><a href="#">Terms</a></li>
+                        <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
+                    </ul>
+                    <p class="copyright">Spotify © 2018</p>
+                </footer>
+            </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+  </body>
+</html>
