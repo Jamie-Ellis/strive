@@ -1,0 +1,35 @@
+body{
+    background: #d8d8d8;
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1;
+    letter-spacing: 0;
+}
+menu{
+    z-index: 60;
+    height: 48px;
+    padding: 0 2%;
+    color: #ccc;
+}
+i.fas{
+    color: white;
+}
+.col-md-auto{
+    padding-left: 3px;
+    padding-right: 3px;
+}
+.col-4.border-leftt{
+    border-left: 1px solid grey;
+}
+.fas.fa-percent.d-inline{
+    color: black;
+}
+
+div.card-body{
+    
+}
+div.card.image{
+    width: 100px;
+    height: 50;
+}
