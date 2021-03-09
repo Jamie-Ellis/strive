@@ -1,0 +1,56 @@
+@font-face {
+    font-family: "Circular";
+    src: url("https://www.bu.edu/cdn/fonts/Circular/Circular-Book.eot%");
+    src: url("https://www.bu.edu/cdn/fonts/Circular/Circular-Book.eot?#iefix%")
+        format("embedded-opentype"),
+      url("https://www.bu.edu/cdn/fonts/Circular/Circular-Book.woff%")
+        format("woff"),
+      url("https://www.bu.edu/cdn/fonts/Circular/Circular-Book.ttf%")
+        format("truetype");
+    font-style: normal;
+    font-weight: 400;
+  }
+  
+  @font-face {
+    font-family: "Circular";
+    src: url("https://www.bu.edu/cdn/fonts/Circular/Circular-Bold.eot%");
+    src: url("https://www.bu.edu/cdn/fonts/Circular/Circular-Bold.eot?#iefix%")
+        format("embedded-opentype"),
+      url("https://www.bu.edu/cdn/fonts/Circular/Circular-Bold.woff%")
+        format("woff"),
+      url("https://www.bu.edu/cdn/fonts/Circular/Circular-Bold.ttf%")
+        format("truetype");
+    font-style: normal;
+    font-weight: 700;
+  }
+  
+  @font-face {
+    font-family: "Circular";
+    src: url("https://www.bu.edu/cdn/fonts/Circular/Circular-Black.eot%");
+    src: url("https://www.bu.edu/cdn/fonts/Circular/Circular-Black.eot?#iefix%")
+        format("embedded-opentype"),
+      url("https://www.bu.edu/cdn/fonts/Circular/Circular-Black.woff%")
+        format("woff"),
+      url("https://www.bu.edu/cdn/fonts/Circular/Circular-Black.ttf%")
+        format("truetype");
+    font-style: normal;
+    font-weight: 900;
+  }
+  
+  .font-light {
+    font-family: "Circular", sans-serif;
+    font-weight: 300;
+  }
+  .font-regular {
+    font-family: "Circular", sans-serif;
+    font-weight: 400;
+  }
+  .font-chubby {
+    font-family: "Circular", sans-serif;
+    font-weight: 600;
+  }
+  .font-bold {
+    font-family: "Circular", sans-serif;
+    font-weight: 700;
+  }
+  
