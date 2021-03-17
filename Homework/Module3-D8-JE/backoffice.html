@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!--
+          
+            You are building the new Amazon.
+            This time you are also responsible for the back office.
+
+            THIS is you CRUD endpoint
+            https://striveschool-api.herokuapp.com/api/product/
+
+            The product model is 
+
+            {
+                "_id": "5d318e1a8541744830bef139", //SERVER GENERATED
+                "name": "app test 1",  //REQUIRED
+                "description": "somthing longer", //REQUIRED
+                "brand": "nokia", //REQUIRED
+                "imageUrl": "https://drop.ndtv.com/TECH/product_database/images/2152017124957PM_635_nokia_3310.jpeg?downsize=*:420&output-quality=80", //REQUIRED
+                "price": 100, //REQUIRED
+                "userId": "admin", //SERVER GENERATED
+                "createdAt": "2019-07-19T09:32:10.535Z", //SERVER GENERATED
+                "updatedAt": "2019-07-19T09:32:10.535Z", //SERVER GENERATED
+                "__v": 0 //SERVER GENERATED
+            }
+
+            #---------------------------------------------------------------#
+            EVERY REST API CALL SHOULD BE AUTHENTICATED. 
+            Every request to the API should use Token Based Authentication to secure access to the contents.
+            You can get your token by registering on: strive.school/studentlogin
+
+            Authorization: Bearer ###########
+
+            Where ######### is the access_token returned by the endpoint.
+
+            #---------------------------------------------------------------#
+
+            Today you have to implement:
+
+            - A backoffice page, where you can insert the product by specifying the parameters
+            - A front page, where the user can see the available products
+
+            ------ N.B. ------
+
+            Tokens duration is set to 14 days. Whenever you'll need to obtain a new one you can send the following request:
+            
+            POST https://striveschool-api.herokuapp.com/api/account/login
+            {
+                "username": "testusername@yourmail.com",
+                "password":"pass"
+            }   
+
+        -->
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+      integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
+      crossorigin="anonymous"
+    />
+
+    <title>Hello, world!</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#">Navbar</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="backoffice.html"
+              >Back Office<span class="sr-only">(current)</span></a
+            >
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container text-center">
+      <h1 class="mb-5">ADD FEATURED PRODUCTS DETAILS</h1>
+      <h2 class="mb-5">(backoffice)</h2>
+      <div style="justify-content: center" class="row row-cols-1">
+        <div class="col">
+          <form onsubmit="handleSubmit(event)">
+            <div class="form-group">
+              <label for="name">Product name</label>
+              <input
+                id="name"
+                type="text"
+                class="form-control"
+                placeholder="Write the product name here"
+              />
+            </div>
+            <div class="form-group">
+              <label for="description">Product description</label>
+              <textarea
+                id="description"
+                rows="4"
+                class="form-control"
+                placeholder="Write the product description here"
+              ></textarea>
+            </div>
+            <div class="form-group">
+              <label for="price">Product price ($)</label>
+              <input
+                id="price"
+                type="number"
+                class="form-control"
+                placeholder="Write the product price here"
+              />
+            </div>
+            <div class="form-group">
+              <label for="time">Product brand</label>
+              <input
+                id="brand"
+                type="text"
+                class="form-control"
+                placeholder="Write the product brand here"
+              />
+            </div>
+            <div class="form-group">
+              <label for="time">Product image URL</label>
+              <input
+                id="imageUrl"
+                type="text"
+                class="form-control"
+                placeholder="Paste the products image link here:"
+              />
+            </div>
+            <div class="form-group">
+              <button class="btn btn-primary" type="submit">
+                Submit Product
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script>
+        window.onload = async () => {
+        console.log("page has been rendered");
+      };
+      
+      const handleSubmit = async (e) => {
+          e.preventDefault();
+          const productURL =
+          "https://striveschool-api.herokuapp.com/api/product/";
+
+          let myProduct = {
+              name: document.getElementById('name').value,
+              description: document.getElementById('description').value,
+              price: document.getElementById('price').value,
+              brand: document.getElementById('brand').value,
+              imageUrl: document.getElementById('imageUrl').value,
+          };
+
+          console.log(myProduct)
+
+          try {
+          let response = await fetch(productURL, {
+            method: "POST",
+            body: JSON.stringify(myProduct),
+            headers: {
+                "Content-Type" : "application/json",
+                "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDUxZWVhODg5YzI2ZjAwMTU3ZjljMmEiLCJpYXQiOjE2MTU5ODIyNDksImV4cCI6MTYxNzE5MTg0OX0.HFuH-U8pyPW9Fu5gg67BWY948kRjZWErmLRedPQyZWE"
+            }
+          });
+
+          if (response.ok) {
+            // probably everything went well
+            alert("Product was created successfully!");
+          } else {
+            alert("something went wrong :(");
+            // probably something went wrong
+          }
+        } catch (error) {
+          console.log(error);
+        }
+      }
+    </script>
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+    -->
+  </body>
+</html>
