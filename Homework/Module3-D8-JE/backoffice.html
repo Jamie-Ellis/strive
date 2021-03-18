@@ -85,7 +85,7 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item active">
-            <a class="nav-link" href="#">Home </a>
+            <a class="nav-link" href="index.html">Home </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="backoffice.html"
@@ -97,7 +97,7 @@
     </nav>
 
     <div class="container text-center">
-      <h1 class="mb-5">ADD FEATURED PRODUCTS DETAILS</h1>
+      <h2 class="my-5" id="pageTitle"></h2>
       <h2 class="mb-5">(backoffice)</h2>
       <div style="justify-content: center" class="row row-cols-1">
         <div class="col">
@@ -109,6 +109,7 @@
                 type="text"
                 class="form-control"
                 placeholder="Write the product name here"
+                required
               />
             </div>
             <div class="form-group">
@@ -118,6 +119,7 @@
                 rows="4"
                 class="form-control"
                 placeholder="Write the product description here"
+                required
               ></textarea>
             </div>
             <div class="form-group">
@@ -127,6 +129,7 @@
                 type="number"
                 class="form-control"
                 placeholder="Write the product price here"
+                required
               />
             </div>
             <div class="form-group">
@@ -145,6 +148,7 @@
                 type="text"
                 class="form-control"
                 placeholder="Paste the products image link here:"
+                required
               />
             </div>
             <div class="form-group">
@@ -158,38 +162,88 @@
     </div>
 
     <script>
-        window.onload = async () => {
+      const productURL = "https://striveschool-api.herokuapp.com/api/product/";
+
+      let id;
+
+      window.onload = async () => {
         console.log("page has been rendered");
+
+        let urlParams = new URLSearchParams(window.location.search);
+        id = urlParams.get("id");
+        console.log("product ID is:", id);
+
+        if (id) {
+          document.getElementById("pageTitle").innerText = "EDIT PRODUCT";
+          // here I will now fetch(url+id)
+          // and I will pre-populate my inputs in the form with the event details
+          // that won't be a new resource, I will just EDIT the existing event
+          let response = await fetch(productURL + id, {
+              headers: {
+                "Authorization":
+                  "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDUxZWVhODg5YzI2ZjAwMTU3ZjljMmEiLCJpYXQiOjE2MTU5ODIyNDksImV4cCI6MTYxNzE5MTg0OX0.HFuH-U8pyPW9Fu5gg67BWY948kRjZWErmLRedPQyZWE"
+              }
+            });
+          let productDetails = await response.json();
+          console.log(productDetails);
+
+          document.getElementById("name").value = productDetails.name;
+          document.getElementById("description").value =
+            productDetails.description;
+          document.getElementById("price").value = productDetails.price;
+          document.getElementById("brand").value = productDetails.brand;
+          document.getElementById("imageUrl").value = productDetails.imageUrl;
+        } else {
+          document.getElementById("pageTitle").innerText = "CREATE EVENT";
+        }
       };
-      
+
       const handleSubmit = async (e) => {
-          e.preventDefault();
-          const productURL =
-          "https://striveschool-api.herokuapp.com/api/product/";
+        e.preventDefault();
 
-          let myProduct = {
-              name: document.getElementById('name').value,
-              description: document.getElementById('description').value,
-              price: document.getElementById('price').value,
-              brand: document.getElementById('brand').value,
-              imageUrl: document.getElementById('imageUrl').value,
-          };
+        let myProduct = {
+          name: document.getElementById("name").value,
+          description: document.getElementById("description").value,
+          price: document.getElementById("price").value,
+          brand: document.getElementById("brand").value,
+          imageUrl: document.getElementById("imageUrl").value,
+        };
 
-          console.log(myProduct)
+        console.log(myProduct);
 
-          try {
-          let response = await fetch(productURL, {
-            method: "POST",
-            body: JSON.stringify(myProduct),
-            headers: {
-                "Content-Type" : "application/json",
-                "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDUxZWVhODg5YzI2ZjAwMTU3ZjljMmEiLCJpYXQiOjE2MTU5ODIyNDksImV4cCI6MTYxNzE5MTg0OX0.HFuH-U8pyPW9Fu5gg67BWY948kRjZWErmLRedPQyZWE"
-            }
-          });
+        // FOR EDITING AN EXISTING RESOURCE:
+        // url + id --> https://striveschool-api.herokuapp.com/api/agenda/kasdkjshdajd
+        // PUT --> put will just EDIT AN EXISTING RESOURCE
+
+        let response;
+
+        try {
+          if (id) {
+            response = await fetch(productURL + id, {
+              method: "PUT",
+              headers: {
+                "Authorization":
+                  "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDUxZWVhODg5YzI2ZjAwMTU3ZjljMmEiLCJpYXQiOjE2MTU5ODIyNDksImV4cCI6MTYxNzE5MTg0OX0.HFuH-U8pyPW9Fu5gg67BWY948kRjZWErmLRedPQyZWE"
+              }
+            });
+          } else {
+            response = await fetch(productURL, {
+              method: "POST",
+              body: JSON.stringify(myProduct),
+              headers: {
+                "Content-Type": "application/json",
+                "Authorization":
+                  "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDUxZWVhODg5YzI2ZjAwMTU3ZjljMmEiLCJpYXQiOjE2MTU5ODIyNDksImV4cCI6MTYxNzE5MTg0OX0.HFuH-U8pyPW9Fu5gg67BWY948kRjZWErmLRedPQyZWE"
+              }
+            });
+          }
+
+          console.log(response);
 
           if (response.ok) {
             // probably everything went well
-            alert("Product was created successfully!");
+            alert(`Product was ${id ? "edited" : "created "} successfully!`);
+            window.location.assign("index.html");
           } else {
             alert("something went wrong :(");
             // probably something went wrong
@@ -197,7 +251,7 @@
         } catch (error) {
           console.log(error);
         }
-      }
+      };
     </script>
     <!-- Optional JavaScript; choose one of the two! -->
 
