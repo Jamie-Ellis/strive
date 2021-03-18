@@ -101,11 +101,21 @@
     </nav>
 
     <div class="container">
+      <div class="row row-cols-1" style="align-items: center;">
+        <div class="col">
+          <div
+            id="loadingSpinner"
+            class="spinner-border text-primary d-none"
+            role="status"
+          >
+            <span class="sr-only">Loading...</span>
+          </div>
+        </div>
+      </div>
       <div
         id="featured-products"
         class="row row-cols-sm-1 row-cols-md-3 row-cols-lg-4"
       >
-        
       </div>
     </div>
 
@@ -120,10 +130,13 @@
         // GET IT'S THE DEFAULT METHOD
 
         try {
+
+          document.getElementById("loadingSpinner").classList.toggle("d-none");
+
           let response = await fetch(productURL, {
             method: "GET",
             headers: {
-              Authorization:
+              "Authorization":
                 "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDUxZWVhODg5YzI2ZjAwMTU3ZjljMmEiLCJpYXQiOjE2MTU5ODIyNDksImV4cCI6MTYxNzE5MTg0OX0.HFuH-U8pyPW9Fu5gg67BWY948kRjZWErmLRedPQyZWE",
             },
           });
@@ -131,12 +144,14 @@
           let data = await response.json();
           console.log(data);
 
+          document.getElementById("loadingSpinner").classList.toggle("d-none");
           if (data.length > 0) {
             // create list items and append them in the list
             data.forEach((product) => {
               let productCard = document.createElement("div");
               productCard.classList.add("col");
               productCard.innerHTML = `
+            <a href="./details.html?id=${product._id}">
               <div class="card h-100">
                 <img src="${product.imageUrl}" class="card-img-top" alt="...">
                   <div style>
@@ -147,7 +162,8 @@
                       <h6>${product.price}$</h6>
                     </div>
                   </div>
-              </div>`;
+              </div>
+            </a>`;
               productsDiv.appendChild(productCard);
             });
           } else {
